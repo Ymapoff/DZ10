@@ -24,19 +24,22 @@ public class Radio {
     }
 
 
-    public void setVolumeRadio(int newVolumeRadio) {
-        if (newVolumeRadio > 0) {
-            int maxVol = 100;
+    public void getVolumeRadio(int newVolumeRadio) {
+
+            if (newVolumeRadio > 0) {
+                newVolumeRadio = 100;
+            }
+
+
+            if (newVolumeRadio < 100) {
+                newVolumeRadio = 0;
+            }
+            volumeRadio = newVolumeRadio;
         }
 
-        if (newVolumeRadio < 100) {
-            int minVol = 0;
-        }
-        volumeRadio = newVolumeRadio;
-    }
 
 
-    public int setVolumeRadio2() {
+    public int getVolumeRadio2() {
         return adjustmentVolume;
     }
 
