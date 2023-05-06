@@ -1,13 +1,15 @@
 public class Radio {
-    public int radioStation;
-    public int volumeRadio;
-    public int adjustmentVolume;
+    private int radioStation;
+    private int adjustmentStation;
+    private int volumeRadio;
+    private int adjustmentVolume;
 
-    public int getRadioStation() {
+
+    public int setRadioStation() {
         return radioStation;
     }
 
-    public int setRadioStation(int newRadioStation) {
+    public int getRadioStation(int newRadioStation) {
         if (newRadioStation > 0) {
             int prev = 9;
         }
@@ -15,45 +17,57 @@ public class Radio {
             int next = 0;
         }
         radioStation = newRadioStation;
-        return radioStation;
+       return newRadioStation;
     }
 
 
-    public int getVolumeRadio() {
+    public void getIncreaseStation(int currentStation) {
+        if (currentStation < 9) {
+            currentStation = currentStation + 1;
+        }
+        radioStation = currentStation;
+    }
+
+    public void getReduceStation(int currentStation) {
+        if (currentStation > 0) {
+            currentStation = currentStation - 1;
+        }
+        radioStation = currentStation;
+    }
+
+    public int setVolumeRadio() {
         return volumeRadio;
     }
 
 
     public void getVolumeRadio(int newVolumeRadio) {
 
-            if (newVolumeRadio > 0) {
-                newVolumeRadio = 100;
-            }
-
-
-            if (newVolumeRadio < 100) {
-                newVolumeRadio = 0;
-            }
-            volumeRadio = newVolumeRadio;
+        if (newVolumeRadio > 0) {
+            newVolumeRadio = 100;
         }
+        if (newVolumeRadio < 100) {
+            newVolumeRadio = 0;
+        }
+        volumeRadio = newVolumeRadio;
+    }
 
-
-
-    public int getVolumeRadio2() {
+    public int setVolumeRadio2() {
         return adjustmentVolume;
     }
 
-    public void increaseVolume(int currentVolume) {
+    public void getIncreaseVolume(int currentVolume) {
         if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
+
         }
         adjustmentVolume = currentVolume;
     }
 
-    public void reduceVolume(int currentVolume) {
+    public void getReduceVolume(int currentVolume) {
         if (currentVolume > 0) {
             currentVolume = currentVolume - 1;
         }
+
         adjustmentVolume = currentVolume;
     }
 
