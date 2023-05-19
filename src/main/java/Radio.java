@@ -1,38 +1,59 @@
 public class Radio {
     private int radioStation;
     private int volumeRadio;
-    private int adjustmentVolume;
 
+    private int quantityStation = 10;
+    private int maxRadioStation = quantityStation - 1;
+    private int minRadioStation = 0;
+    public int currentRadioStation = maxRadioStation;
+    private int maxVolumeRadio = 100;
+    private int minVolumeRadio = 0;
+    public int currentVolumeRadio = minVolumeRadio;
+
+    public Radio() {
+
+    }
+
+    public Radio(int quantityStation) {
+        if (quantityStation < minRadioStation) {
+            return;
+        } else {
+            this.quantityStation = quantityStation;
+        }
+        this.maxRadioStation = quantityStation - 1;
+    }
 
     public void setRadioStation(int radioStation) {
+
         this.radioStation = radioStation;
     }
 
     public void next() {
-        if (radioStation != 9) {
+        if (radioStation != maxRadioStation) {
             radioStation++;
         } else {
-            radioStation = 0;
+            radioStation = minRadioStation;
         }
     }
 
     public void prev() {
-        if (radioStation != 0) {
+        if (radioStation != minRadioStation) {
             radioStation--;
         } else {
-            radioStation = 9;
+            radioStation = maxRadioStation;
         }
     }
 
     public int getRadioStation() {
+
         return radioStation;
     }
 
     public void setCurrentStation(int currentStation) {
-        if (currentStation > 9) {
+        if (currentStation > maxRadioStation) {
             return;
         }
-        if (currentStation < 0) {
+        if (currentStation < minRadioStation) {
             return;
         }
         this.radioStation = currentStation;
@@ -45,19 +66,19 @@ public class Radio {
 
     public void volumeRadioUp() {
 
-        if (volumeRadio != 100) {
+        if (volumeRadio != maxVolumeRadio) {
             volumeRadio++;
         } else {
-            volumeRadio = 100;
+            volumeRadio = maxVolumeRadio;
         }
     }
 
     public void volumeRadioDown() {
 
-        if (volumeRadio != 0) {
+        if (volumeRadio != minVolumeRadio) {
             volumeRadio--;
         } else {
-            volumeRadio = 0;
+            volumeRadio = minVolumeRadio;
         }
     }
 
@@ -66,10 +87,10 @@ public class Radio {
     }
 
     public void setAdjustmentVolume(int adjustmentVolume) {
-        if (adjustmentVolume > 100) {
+        if (adjustmentVolume > maxVolumeRadio) {
             return;
         }
-        if (adjustmentVolume < 0) {
+        if (adjustmentVolume < minVolumeRadio) {
             return;
         }
         this.volumeRadio = adjustmentVolume;
