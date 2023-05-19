@@ -20,7 +20,7 @@ public class Radio {
         } else {
             this.quantityStation = quantityStation;
         }
-        this.minRadioStation = quantityStation - 1;
+        this.maxRadioStation = quantityStation - 1;
     }
 
     public void setRadioStation(int radioStation) {
