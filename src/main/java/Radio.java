@@ -1,46 +1,49 @@
 public class Radio {
     private int radioStation;
-    private int adjustmentStation;
     private int volumeRadio;
     private int adjustmentVolume;
 
 
-    public int setRadioStation() {
+    public void setRadioStation(int radioStation) {
+        this.radioStation = radioStation;
+    }
+
+    public void next() {
+        if (radioStation != 9) {
+            radioStation++;
+        } else {
+            radioStation = 0;
+        }
+    }
+
+    public void prev() {
+        if (radioStation != 0) {
+            radioStation--;
+        } else {
+            radioStation = 9;
+        }
+    }
+
+    public int getRadioStation() {
         return radioStation;
     }
 
-    public int getRadioStation(int newRadioStation) {
-        if (newRadioStation > 0) {
-            int prev = 9;
+    public void setCurrentStation(int currentStation) {
+        if (currentStation > 9) {
+            return;
         }
-        if (newRadioStation < 9) {
-            int next = 0;
+        if (currentStation < 0) {
+            return;
         }
-        radioStation = newRadioStation;
-       return newRadioStation;
+        this.radioStation = currentStation;
     }
 
-
-    public void getIncreaseStation(int currentStation) {
-        if (currentStation < 9) {
-            currentStation = currentStation + 1;
-        }
-        radioStation = currentStation;
-    }
-
-    public void getReduceStation(int currentStation) {
-        if (currentStation > 0) {
-            currentStation = currentStation - 1;
-        }
-        radioStation = currentStation;
-    }
-
-    public int setVolumeRadio() {
+    public int getVolumeRadio() {
         return volumeRadio;
     }
 
 
-    public void getVolumeRadio(int newVolumeRadio) {
+    public void setVolumeRadio(int newVolumeRadio) {
 
         if (newVolumeRadio > 0) {
             newVolumeRadio = 100;
@@ -55,7 +58,7 @@ public class Radio {
         return adjustmentVolume;
     }
 
-    public void getIncreaseVolume(int currentVolume) {
+    public void setIncreaseVolume(int currentVolume) {
         if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
 
@@ -70,5 +73,6 @@ public class Radio {
 
         adjustmentVolume = currentVolume;
     }
+
 
 }
