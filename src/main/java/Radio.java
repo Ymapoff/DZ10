@@ -38,40 +38,40 @@ public class Radio {
         this.radioStation = currentStation;
     }
 
+
+public void  setVolumeRadio(int volumeRadio){
+        this.volumeRadio = volumeRadio;
+}
+
+    public void volumeRadioUp() {
+
+        if (volumeRadio != 100) {
+            volumeRadio ++;
+        } else{
+        volumeRadio = 100;
+        }
+    }
+
+    public void volumeRadioDown() {
+
+        if (volumeRadio != 0) {
+            volumeRadio --;
+        } else{
+            volumeRadio = 0;
+        }
+    }
+
     public int getVolumeRadio() {
         return volumeRadio;
     }
-
-
-    public void setVolumeRadio(int newVolumeRadio) {
-
-        if (newVolumeRadio > 0) {
-            newVolumeRadio = 100;
+    public void setAdjustmentVolume(int adjustmentVolume){
+        if (adjustmentVolume > 100){
+            return;
         }
-        if (newVolumeRadio < 100) {
-            newVolumeRadio = 0;
+        if (adjustmentVolume < 0){
+            return;
         }
-        volumeRadio = newVolumeRadio;
-    }
-
-    public int setVolumeRadio2() {
-        return adjustmentVolume;
-    }
-
-    public void setIncreaseVolume(int currentVolume) {
-        if (currentVolume < 100) {
-            currentVolume = currentVolume + 1;
-
-        }
-        adjustmentVolume = currentVolume;
-    }
-
-    public void getReduceVolume(int currentVolume) {
-        if (currentVolume > 0) {
-            currentVolume = currentVolume - 1;
-        }
-
-        adjustmentVolume = currentVolume;
+        this.volumeRadio = adjustmentVolume;
     }
 
 
