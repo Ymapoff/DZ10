@@ -169,14 +169,14 @@ public class RadioTest {
     }
 
     @Test
-    public void adjustmentVolumeMaxFalse(){
+    public void adjustmentVolumeMaxFalse() {
         Radio radio = new Radio();
 
         radio.setAdjustmentVolume(111);
 
         int expenced = 0;
         int actual = radio.getVolumeRadio();
-        Assertions.assertEquals(expenced , actual);
+        Assertions.assertEquals(expenced, actual);
     }
 
     @Test

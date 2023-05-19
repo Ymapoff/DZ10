@@ -39,24 +39,24 @@ public class Radio {
     }
 
 
-public void  setVolumeRadio(int volumeRadio){
+    public void setVolumeRadio(int volumeRadio) {
         this.volumeRadio = volumeRadio;
-}
+    }
 
     public void volumeRadioUp() {
 
         if (volumeRadio != 100) {
-            volumeRadio ++;
-        } else{
-        volumeRadio = 100;
+            volumeRadio++;
+        } else {
+            volumeRadio = 100;
         }
     }
 
     public void volumeRadioDown() {
 
         if (volumeRadio != 0) {
-            volumeRadio --;
-        } else{
+            volumeRadio--;
+        } else {
             volumeRadio = 0;
         }
     }
@@ -64,11 +64,12 @@ public void  setVolumeRadio(int volumeRadio){
     public int getVolumeRadio() {
         return volumeRadio;
     }
-    public void setAdjustmentVolume(int adjustmentVolume){
-        if (adjustmentVolume > 100){
+
+    public void setAdjustmentVolume(int adjustmentVolume) {
+        if (adjustmentVolume > 100) {
             return;
         }
-        if (adjustmentVolume < 0){
+        if (adjustmentVolume < 0) {
             return;
         }
         this.volumeRadio = adjustmentVolume;
